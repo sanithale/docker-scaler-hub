@@ -1,6 +1,6 @@
 #!/bin/bash
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-source /opt/bin/functions.sh
+#source /opt/bin/functions.sh
 
 #check required params
 #[ -z ${AWS_ACCESS_KEY} ] && echo "AWS_ACCESS_KEY MUST BE SET!" >> ./Dockerfile && exit 1
@@ -30,7 +30,7 @@ else
         sed -i "s/<IP_ADDRESS>/${EC2_PRIVATE_IP_ID}/g" /opt/selenium/hub.json
 fi
 
-SERVERNUM=$(get_server_num)
+#SERVERNUM=$(get_server_num)
 
 rm -f /tmp/.X*lock
 
@@ -38,7 +38,7 @@ rm -f /tmp/.X*lock
 #  java -jar /opt/selenium/selenium-grid-extras.jar &
 #NODE_PID=$!
 
-xvfb-run -n $SERVERNUM --server-args="$DISPLAY -screen 0 $GEOMETRY -ac +extension RANDR" \
+# xvfb-run -n $SERVERNUM --server-args="$DISPLAY -screen 0 $GEOMETRY -ac +extension RANDR" \
     java -DipAddress="${EC2_PRIVATE_IP_ID}" \
     -DPOOL_MAX=1024 \
     -DtotalNodeCount=100 \
@@ -47,6 +47,6 @@ xvfb-run -n $SERVERNUM --server-args="$DISPLAY -screen 0 $GEOMETRY -ac +extensio
     -hubConfig /opt/selenium/hub.json \
     -jettyMaxThreads 1024 \
     -servlets "com.rmn.qa.servlet.AutomationTestRunServlet","com.rmn.qa.servlet.StatusServlet" &
-NODE_PID=$!
+# NODE_PID=$!
 
 trap shutdown SIGTERM SIGINT
