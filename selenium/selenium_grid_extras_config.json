@@ -1,0 +1,44 @@
+{
+  "theConfigMap": {
+    "grid_extras_auto_update": "0",
+    "hub_config_files": [
+      "hub.json"
+    ],
+    "auto_start_hub": "1",
+    "iedriver": {
+      "bit": "x64",
+      "version": "3.3.0"
+    },
+    "default_role": "hub",
+    "chromedriver": {
+      "bit": "64",
+      "version": "2.29"
+    },
+    "auto_update_drivers": "1",
+    "auto_start_node": "0",
+    "hub_config": {},
+    "geckodriver": {
+      "version": "0.16.1"
+    },
+    "hub_config": {
+      "host": "10.255.21.22"
+    },
+    "log_maximum_age_ms": 864000000,
+    "reboot_after_sessions": "20",
+    "grid_extras_port": "3000",
+    "webdriver": {
+      "version": "3.4.0",
+      "customPath" : "/opt/selenium/automation-grid.jar"
+    },
+    "grid_jvm_options": {
+      "propertyFileLocation" : "/opt/selenium/aws.properties",
+      "awsAccessKey" : "",
+      "awsSecretKey" : "",
+      "ipAddress" : "10.255.21.22",
+      "POOL_MAX" : "1024",
+      "jettyMaxThreads" : "1024",
+      "totalNodeCount" : "20"
+    },
+    "node_config_files": []
+  }
+}
