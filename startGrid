@@ -1,6 +1,6 @@
 #!/bin/bash
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-source /opt/bin/functions.sh
+source /opt/bin/functions
 
 #check required params
 #[ -z ${AWS_ACCESS_KEY} ] && echo "AWS_ACCESS_KEY MUST BE SET!" >> ./Dockerfile && exit 1
@@ -30,7 +30,7 @@ else
         sed -i "s/<IP_ADDRESS>/${EC2_PRIVATE_IP_ID}/g" /opt/selenium/hub.json
 fi
 
-SERVERNUM=$(get_server_num)
+SERVERNUM="122323"
 
 rm -f /tmp/.X*lock
 
